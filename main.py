@@ -1,4 +1,3 @@
-class ClassName:
-  def method(arg1):
-    print('method')
-    return 1
+import sqlalchemy
+
+print(sqlalchemy.__version__)
