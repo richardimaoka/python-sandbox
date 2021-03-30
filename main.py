@@ -14,3 +14,8 @@ with engine.connect() as conn:
         [{"x": 1, "y": 1}, {"x": 2, "y": 4}]
     )
     conn.commit()
+
+with engine.connect() as conn:
+    result = conn.execute(text("SELECT * FROM some_table"))
+    for x, y in result:
+        print(x, y)
