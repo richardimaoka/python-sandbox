@@ -17,5 +17,5 @@ with engine.connect() as conn:
 
 with engine.connect() as conn:
     result = conn.execute(text("SELECT * FROM some_table"))
-    for x, y in result:
-        print(x, y)
+    for abc, xyz in result:
+        print(abc, xyz)
