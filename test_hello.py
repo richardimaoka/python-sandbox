@@ -1,3 +1,4 @@
+from encoder import str_to_base64
 import unittest
 
 
