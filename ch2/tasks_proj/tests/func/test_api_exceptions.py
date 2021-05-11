@@ -7,18 +7,18 @@ import tasks
 def test_add_raises():
     """add() should raise an exception with wrong type param."""
     with pytest.raises(TypeError):
-        tasks.add(task='not a Task object')
+        tasks.add(task=tasks.Task('do something', 'okken', True, None))
 
 
-@pytest.mark.smoke
+@ pytest.mark.smoke
 def test_list_raises():
     """list() should raise an exception with wrong type param."""
     with pytest.raises(TypeError):
         tasks.list_tasks(owner=123)
 
 
-@pytest.mark.get
-@pytest.mark.smoke
+@ pytest.mark.get
+@ pytest.mark.smoke
 def test_get_raises():
     """get() should raise an exception with wrong type param."""
     with pytest.raises(TypeError):
