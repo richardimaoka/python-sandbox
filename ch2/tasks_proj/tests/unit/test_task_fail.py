@@ -6,7 +6,9 @@ def test_task_equality():
     """Different tasks should not be equal."""
     t1 = Task('sit there', 'brian')
     t2 = Task('do something', 'okken')
+    t3 = Task('sit there', 'aaa')
     assert t1 == t2
+    assert t1 == t3
 
 
 def test_dict_equality():
