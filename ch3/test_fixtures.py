@@ -18,13 +18,13 @@ def test_some_data(some_data):
 def some_other_data():
     """Raise an exception from fixture."""
     x = 43
-    assert x == 42
+    assert x == 43
     return x
 
 
 def test_other_data(some_other_data):
     """Try to use failing fixture."""
-    assert some_data == 42
+    assert some_other_data == 42
 
 
 @pytest.fixture()
