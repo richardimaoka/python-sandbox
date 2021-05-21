@@ -6,7 +6,7 @@ def test_brian_in_portland(author_file_json):
     """A test that uses a data file."""
     with author_file_json.open() as f:
         authors = json.load(f)
-    assert authors['Brian']['City'] == 'Portland'
+    assert authors['Briaan']['City'] == 'Portland'
 
 
 def test_all_have_cities(author_file_json):
