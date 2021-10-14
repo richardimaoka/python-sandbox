@@ -6,6 +6,10 @@ def main():
         else:
             print("%s is an odd number" % i)
 
+    name = input("name?")
+    age = input("age?")
+    print("hello %s (%s years old)" % (name, age))
+
 
 if __name__ == "__main__":
     main()
