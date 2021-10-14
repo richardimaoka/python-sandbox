@@ -11,5 +11,10 @@ def main():
     print("hello %s (%s years old)" % (name, age))
 
 
+def docstring_test():
+    """this is for documentation"""
+    return True
+
+
 if __name__ == "__main__":
     main()
