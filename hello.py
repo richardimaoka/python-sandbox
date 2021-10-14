@@ -6,9 +6,10 @@ def main():
         else:
             print("%s is an odd number" % i)
 
-    name = input("name?")
-    age = input("age?")
-    print("hello %s (%s years old)" % (name, age))
+    f = open('pyvenv.cfg')
+    for line in f:
+        print(line, end="")
+    f.close()
 
 
 def docstring_test():
