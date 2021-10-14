@@ -11,6 +11,11 @@ def main():
         print(line, end="")
     f.close()
 
+    s = 'あ'
+    b = s.encode('utf-8')
+    c = s.encode('UTF-8')
+    print(s, b, c)
+
 
 def docstring_test():
     """this is for documentation"""
