@@ -1,10 +1,12 @@
 def main():
-    with open('pyvenv.cfg') as f:
-        for line in f:
-            print(line, end="")
-        f.close()
-        f.close()
-        print('f.close() is called twice')
+    s = 'あ'
+    b = s.encode('utf-8')
+    print(b)
+    c = b'\xe3\x81\x82'
+    d = c.decode('utf-8')
+    e = str(c)
+    print(d)
+    print(e)
 
 
 def docstring_test():
