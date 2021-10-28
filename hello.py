@@ -1,8 +1,7 @@
 def main():
-    f = open('pyvenv.cfg')
-    for line in f:
-        print(line, end="")
-    f.close()
+    with open('pyvenv.cfg') as f:
+        for line in f:
+            print(line, end="")
 
 
 def docstring_test():
