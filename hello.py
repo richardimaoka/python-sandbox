@@ -1,13 +1,13 @@
+import sys
+
+
 def main():
-    s = 'あ'
-    b = s.encode('utf-8')
-    print(s)
-    print(b)
-    c = b'\xe3\x81\x82'
-    d = c.decode('utf-8')
-    e = str(c)
-    print(d)
-    print(e)
+    echo(sys.stdin, sys.stdout)
+
+
+def echo(in_, out):
+    for line in in_:
+        out.write(line)
 
 
 def docstring_test():
