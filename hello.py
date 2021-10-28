@@ -1,20 +1,8 @@
 def main():
-    """サンプルプログラムのメイン関数"""
-    for i in range(1, 6):
-        if i % 2 == 0:
-            print("%s is an even number" % i)
-        else:
-            print("%s is an odd number" % i)
-
     f = open('pyvenv.cfg')
     for line in f:
         print(line, end="")
     f.close()
-
-    s = 'あ'
-    b = s.encode('utf-8')
-    c = s.encode('UTF-8')
-    print(s, b, c)
 
 
 def docstring_test():
