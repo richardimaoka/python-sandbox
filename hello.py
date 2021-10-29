@@ -7,7 +7,7 @@ def main():
 
 def echo(in_, out):
     for line in in_:
-        out.write(line)
+        out.write("{0} {1}".format(len(line), line))
 
 
 def docstring_test():
