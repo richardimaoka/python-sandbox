@@ -2,7 +2,7 @@ import sys
 
 
 def main():
-    echo(sys.stdin, sys.stdout)
+    print("{0:04} {1:02}".format(2, 8))
 
 
 def echo(in_, out):
