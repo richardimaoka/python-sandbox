@@ -1,26 +1,22 @@
 import sys
+import fileinput
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-e', '--encoding', default=None)
+parser.add_argument('search', help="search word")
+parser.add_argument('files', nargs="+")
+args = parser.parse_args()
+search = args.search
 
 
-def main():
-    p = Point(4, 5)
-    print("{0.x}, {0.y}".format(p))
-    print("{0}, {1}".format(p.x, p.y))
-
-    data = {'x': 4, 'y': 5}
-    print("{0[x]}, {0[y]}".format(data))
-
-    print(format(p))
-    print(format(p, "04"))
+def enc_open(filename, mode):
+    return open(filename, mode=mode, encoding=args.encoding)
 
 
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def __format__(self, spec):
-        return ("({0.x:" + spec + "}, {0.y:" + spec + "})").format(self)
-
-
-if __name__ == "__main__":
-    main()
+with fileinput.FileInput(files=args.files,
+                         openhook=enc_open) as f:
+    for line in f:
+        if line.find(search) > -1:
+            print("{0:20}:{1:4} {2}".format(
+                  f.filename(), f.lineno(), line))
