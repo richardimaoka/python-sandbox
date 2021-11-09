@@ -1,28 +1,26 @@
-import sys
-import fileinput
-import argparse
-import operator
+from datetime import datetime, time
 
 
-def sum_products(filename):
-    with open(filename) as f:
-        results = {}
-        for line in f:
-            parts = line.split(",")
-            title = parts[0]
-            count = int(parts[1])
-            last_count = results.get(title, 0)
-            results[title] = last_count + count
-    return results
+def create_task(name, due_date, required_time):
+    return dict(name=name, due_date=due_date, required_time=required_time,
+                finished=False)
 
 
-def print_results(results):
-    for key, value in sorted(results.items(), key=operator.itemgetter(1)):
-        print(key, value)
+def format_task(task):
+    state = "完了" if task['finished'] else "未完了"
+    format = "{state} {task[name]}: {task[due_date]: % Y-%m-%d}まで 予定所要時間 {task[required_time]}分"
+    return format.format(task=task, state=state)
+
+
+def finish_task(task):
+    task['finished'] = True
 
 
 def main():
-    print_results(sum_products('products.txt'))
+    t = create_task("たすく", datetime(2020, 4, 1), time(0, 25))
+    finish_task(t)
+    t['finished']
+    print(format_task(t))
 
 
 if __name__ == '__main__':
