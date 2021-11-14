@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package kick;
+
+service KickServer {
+  rpc Kick(KickRequest) returns (KickReply) {}
+}
+
+message KickRequest {
+  string kickerName = 1;
+}
+
+message KickReply {
+  string registrationId = 1;
+}
