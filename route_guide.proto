@@ -21,3 +21,10 @@ message RouteNote {
   Point location = 1;
   string message = 2;
 }
+
+message RouteSummary {
+  int32 point_count = 1;
+  int32 feature_count = 2;
+  int32 distance = 3;
+  int32 elapsed_time = 4;
+}
