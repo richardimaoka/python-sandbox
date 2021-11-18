@@ -20,7 +20,7 @@ class RouteGuideServicer(route_guide_pb2_grpc.RouteGuideServicer):
     def __init__(self):
         self.db = route_guide_resources.read_route_guide_database()
 
-    def GetFeature(self, request, context):
+    def GetFeature(self, request):
         feature = get_feature(self.db, request)
         if feature is None:
             return route_guide_pb2.Feature(name="", location=request)
