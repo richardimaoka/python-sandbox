@@ -21,7 +21,7 @@ class RouteGuideServicer(route_guide_pb2_grpc.RouteGuideServicer):
         print("__init__ is called")
         self.db = route_guide_resources.read_route_guide_database()
 
-    def GetFeature(self, request):
+    def GetFeature(self, request, context):
         feature = get_feature(self.db, request)
         if feature is None:
             return route_guide_pb2.Feature(name="", location=request)
