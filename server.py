@@ -1,4 +1,5 @@
 from concurrent import futures
+import time
 import logging
 import grpc
 import route_guide_pb2
@@ -27,6 +28,19 @@ class RouteGuideServicer(route_guide_pb2_grpc.RouteGuideServicer):
             return route_guide_pb2.Feature(name="", location=request)
         else:
             return feature
+
+    def ListFeatures(self, request, context):
+        left = min(request.lo.longitude, request.hi.longitude)
+        right = max(request.lo.longitude, request.hi.longitude)
+        top = max(request.lo.latitude, request.hi.latitude)
+        bottom = min(request.lo.latitude, request.hi.latitude)
+        for feature in self.db:
+            if (feature.location.longitude >= left and
+                feature.location.longitude <= right and
+                feature.location.latitude >= bottom and
+                    feature.location.latitude <= top):
+                yield feature
+                time.sleep(1)
 
 
 def serve():
