@@ -18,6 +18,7 @@ class RouteGuideServicer(route_guide_pb2_grpc.RouteGuideServicer):
     """Provides methods that implement functionality of route guide server"""
 
     def __init__(self):
+        print("__init__ is called")
         self.db = route_guide_resources.read_route_guide_database()
 
     def GetFeature(self, request):
@@ -30,8 +31,9 @@ class RouteGuideServicer(route_guide_pb2_grpc.RouteGuideServicer):
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    servicer = RouteGuideServicer()
     route_guide_pb2_grpc.add_RouteGuideServicer_to_server(
-        RouteGuideServicer, server)
+        servicer, server)
     server.add_insecure_port('[::]:50051')
     server.start()
     server.wait_for_termination()
