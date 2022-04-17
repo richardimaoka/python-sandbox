@@ -10,3 +10,12 @@ print(msg)
 !echo "varvar"  # type: ignore - 'Invalid character "\u21" in token : Pylance'
 
 # %%
+!(sleep 30 &)
+
+# %%
+!(PID=!?)
+
+# %%
+!./hello.sh
+
+# %%
