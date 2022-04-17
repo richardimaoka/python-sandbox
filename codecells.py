@@ -7,6 +7,6 @@ msg = "Hello again"
 print(msg)
 
 # %%
-!echo "varvar"  # this should not affect
+!echo "varvar"  # type: ignore - 'Invalid character "\u21" in token : Pylance'
 
 # %%
