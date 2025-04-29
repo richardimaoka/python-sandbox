@@ -1,18 +1,16 @@
 import asyncio
 import time
 
-async def hello_world(n):
-    time.sleep(1)
-    print("{}: Hello World!".format(n))
+async def say_after(delay, what):
+    await asyncio.sleep(delay)
+    print(what)
 
-async def call_hello_world1():
-    print("call_hello_world1()")
-    await hello_world(1)
+async def main():
+    print(f"started at {time.strftime('%X')}")
 
-async def call_hello_world2():
-    print("call_hello_world2()")
-    await hello_world(2)
+    await say_after(1, 'hello')
+    await say_after(2, 'world')
 
-loop = asyncio.get_event_loop()
-loop.create_task(call_hello_world1())
-loop.run_until_complete(call_hello_world2())
+    print(f"finished at {time.strftime('%X')}")
+
+main()
