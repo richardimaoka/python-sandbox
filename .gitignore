@@ -1,7 +1,0 @@
-lib
-lib64
-bin
-include
-.vscode
-__pycache__
-share
